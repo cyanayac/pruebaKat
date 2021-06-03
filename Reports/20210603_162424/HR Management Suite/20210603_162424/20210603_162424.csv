@@ -1,0 +1,5 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+HR Management Suite,Chrome 90.0.4430.212,,,2021-06-03 16:24:26,2021-06-03 16:24:50,24.046s,FAILED
+,,,,,,,
+Test Cases/TC HRM/RunFeatureFolder,Chrome 90.0.4430.212,,,2021-06-03 16:24:27,2021-06-03 16:24:50,23.460s,FAILED
+"runFeatureFolder(""Include/features/Login"")",Chrome 90.0.4430.212,,,2021-06-03 16:24:27,2021-06-03 16:24:50,23.156s,FAILED

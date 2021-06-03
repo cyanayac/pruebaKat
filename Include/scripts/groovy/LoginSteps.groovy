@@ -55,22 +55,34 @@ class LoginSteps {
 
 	@When("User enters (.*) and (.*)")
 	def enterCredentials(String username, String password) {
-		
+		if(password=="empty") {
+			password=""
+		} else if (username=="empty") {
+			username=""
+		}
+
 		println("username: "+ username + " and password: " + password)
-		
+
 		WebUI.click(findTestObject('Object Repository/Page_OrangeHRM/span_Username'))
 		WebUI.setText(findTestObject('Object Repository/Page_OrangeHRM/input_LOGIN Panel_txtUsername'), username)
 		WebUI.setEncryptedText(findTestObject('Object Repository/Page_OrangeHRM/input_Username_txtPassword'), password)
 	}
-	
+
 	@And("Click on login button")
 	def clickLogin() {
 		WebUI.click(findTestObject('Object Repository/Page_OrangeHRM/input_Password_Submit'))
 	}
 
-	@Then("User is navigated to homepage")
+	@Then("User is navigated to dashboard")
 	def I_verify_the_status_in_step() {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Page_OrangeHRM/h1_Dashboard'), 3)
+		WebUI.closeBrowser()
+	}
+	
+	@Then("The web shows an error (.*)")
+	def appearAnMessageError(String messageError) {
+		WebUI.verifyElementVisible(findTestObject('Page_OrangeHRM/span_Invalid credentials'))
+		WebUI.verifyElementText(findTestObject('Page_OrangeHRM/span_Invalid credentials'), messageError)
 		WebUI.closeBrowser()
 	}
 }
