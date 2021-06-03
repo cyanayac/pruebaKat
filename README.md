@@ -1,3 +1,3 @@
 # pruebaKat
 poc Katalon
-inlude tests with gherkin
+include tests with gherkin
